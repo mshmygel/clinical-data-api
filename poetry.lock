@@ -255,7 +255,10 @@ files = [
 ]
 
 [package.dependencies]
-numpy = {version = ">=1.26.0", markers = "python_version >= \"3.12\""}
+numpy = [
+    {version = ">=1.23.2", markers = "python_version == \"3.11\""},
+    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
+]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
 tzdata = ">=2022.7"
@@ -582,5 +585,5 @@ standard = ["colorama (>=0.4) ; sys_platform == \"win32\"", "httptools (>=0.6.3)
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.12"
-content-hash = "8550cac5a47e15c34563acabc5116177f658b537bfbbe967bb4c21d4eb7f7fac"
+python-versions = "^3.11"
+content-hash = "f6b953ccf0166ea517a5c8629a7500f80f18442ae0058810e4accb95e7f35419"
