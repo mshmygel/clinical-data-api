@@ -130,8 +130,4 @@ clinical-data-api/
 * **make** (Linux/macOS) or `make.bat` (Windows)
 * No need to install Python unless working in dev mode
 
----
 
-## 🪪 License
-
-MIT (or your license here)
