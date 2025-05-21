@@ -11,6 +11,7 @@ A Dockerized FastAPI-based application for browsing clinical tabular data in SDT
 * 📊 View metadata, column stats, and row previews
 * ⚙️ Lightweight, cross-platform, Dockerized setup
 * 🧼 Clean architecture with modular codebase
+* ✅ Fully tested with `pytest`, test isolation via fixtures
 
 ---
 
@@ -55,7 +56,7 @@ To rebuild:
 make restart      # or .\make.bat restart
 ```
 
-> 📎 Note: You must have Docker installed and running.
+> 📌 Note: You must have Docker installed and running.
 
 ---
 
@@ -89,7 +90,7 @@ Supported formats:
 
 ---
 
-## 🔌 API Endpoints
+## 🔀 API Endpoints
 
 | Method | Endpoint                         | Description                              |
 | ------ | -------------------------------- | ---------------------------------------- |
@@ -102,7 +103,29 @@ Supported formats:
 
 ---
 
-## 🧱 Project Structure
+## 📅 Testing
+
+Tests are located in the `tests/` directory and use `pytest` with isolated test data:
+
+* FastAPI is tested using `TestClient`
+* Temporary `data/` directory is injected for full isolation
+* All core endpoints are covered
+
+### ▶️ Run tests:
+
+```bash
+poetry run pytest
+```
+
+Ensure you have `pytest` and `httpx` installed in your dev group:
+
+```bash
+poetry add --group dev pytest httpx
+```
+
+---
+
+## 🛠️ Project Structure
 
 ```
 clinical-data-api/
@@ -113,6 +136,9 @@ clinical-data-api/
 │   ├── services/         # Dataset loading logic
 │   └── utils/            # Format-specific file readers
 ├── data/                 # Drop .sas7bdat/.xpt/.csv/.xlsx files here
+├── tests/                # Unit tests with fixture isolation
+│   ├── test_api.py
+│   └── testdata/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── Makefile              # Unix launcher
@@ -129,5 +155,3 @@ clinical-data-api/
 * **Docker** — required to build and run the project
 * **make** (Linux/macOS) or `make.bat` (Windows)
 * No need to install Python unless working in dev mode
-
-

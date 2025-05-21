@@ -9,9 +9,7 @@ def read_table(file_path: str) -> pd.DataFrame:
     ext = path.suffix.lower()
 
     if ext == ".sas7bdat":
-        """
-        df, _  -> df is DataFrame, _  is ignored metadata
-        """
+        # df, _  -> df is DataFrame, _  is ignored metadata
         df, _ = pyreadstat.read_sas7bdat(path)
     elif ext == ".xpt":
         df, _ = pyreadstat.read_xport(path)
